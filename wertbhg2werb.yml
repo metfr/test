@@ -1,0 +1,12 @@
+name: C++ CI
+
+on: [push] # Запускать при каждом push в репозиторий
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Сборка
+        run: g++ -o circle_area circle_area.cpp
+      - name: Запуск тестов
+        run: ./circle_area
