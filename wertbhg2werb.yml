@@ -1,12 +1,18 @@
 name: C++ CI
 
-on: [push] # Запускать при каждом push в репозиторий
+on:
+  push:
+    paths:
+      - '**' # Запускать при добавлении любых новых файлов
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Сборка
         run: g++ -o circle_area circle_area.cpp
+        
       - name: Запуск тестов
         run: ./circle_area
